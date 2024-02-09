@@ -1,23 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import MyWebComponent from './components/Mywebcomponent';
+import HelloWorld from './components/HelloWorld';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <MyWebComponent props={props} /> */}
+      <hello-world-web-component name="Madhu"></hello-world-web-component>
     </div>
   );
 }
