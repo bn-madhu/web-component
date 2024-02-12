@@ -1,10 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import createWebComponent from 'react-web-component';
+import ReactDOM from 'react-dom/client';
 import HelloWorld from './components/HelloWorld';
+class WebComponent extends HTMLElement {
+    connectedCallback() {
 
-// const HelloWorldWebComponent = createWebComponent(HelloWorld, React, ReactDOM);
-const HelloWorldWebComponent = createWebComponent(HelloWorld);
-// console.log(HelloWorldWebComponent)
+        const date = new Date().toLocaleString();
 
-customElements.define('hello-world-web-component', HelloWorldWebComponent);
+        const mountPoint = document.createElement('span');
+        this.attachShadow({ mode: 'open' }).append(mountPoint);
+    
+        const name = this.getAttribute('name');
+        const root = ReactDOM.createRoot(mountPoint);
+        root.render(
+            <>
+                {/* <p>{name}</p> */}
+                <span>{date}</span>
+                <p>This is a web component</p>
+                <HelloWorld />
+            </>
+        );
+    }
+}
+
+customElements.define('current-date', WebComponent);
