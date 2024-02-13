@@ -6,10 +6,12 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@vidhyasagar-r/sb-library": "^1.0.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-web-component": "^2.0.2",
+    "styled-components": "^6.1.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -34,6 +36,19 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^2.1.4"
+  },
+  "babelConfig": {
+    "plugins": [
+      [
+        "babel-plugin-styled-components",
+        {
+          "displayName": false
+        }
+      ]
     ]
   }
 }

@@ -4,7 +4,7 @@ import { Button, ThemeProviderWrapper } from '@vidhyasagar-r/sb-library';
 function ButtonComponent() {
   return (
     <ThemeProviderWrapper projectThemeIdentifier="theme1">
-        <Button btnType="filled">Download</Button>
+      <Button className="madhu-btn">Download</Button>
     </ThemeProviderWrapper>
   )
 }

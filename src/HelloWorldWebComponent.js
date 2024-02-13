@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import createWebComponent from 'react-web-component';
+// import createWebComponent from 'react-web-component';
 import HelloWorld from './components/HelloWorld';
 import ButtonComponent from './components/ButtonComponent';
 
-// const HelloWorldWebComponent = createWebComponent(HelloWorld);
 class WebComponent extends HTMLElement {
-    // constructor(){
-    //     super();
-    //     this.shadowRoot = this.attachShadow({mode: 'open'});
-    // }
     connectedCallback() {
-        const mountPoint = document.createElement('custom-web-component', this.className="madhu clearfix d-block p-6 ");
-        this.attachShadow({ mode: 'open' }).append(mountPoint);
-        const root = ReactDOM.createRoot(mountPoint);
-        // this.shadowRoot.innerHTML = '';
-        root.render(
+        ReactDOM.render(
             <>
-                <p>This is a web component</p>
                 <HelloWorld />
                 <ButtonComponent />
-                <span style={{float: 'right'}}>{new Date().toLocaleString()}</span>
-            </>
+            </>,
+            this
         );
     }
+    // connectedCallback() {
+    //     const mountPoint = document.createElement('div');
+    //     // this.attachShadow({ mode: 'open' }).appendChild(mountPoint);
+    //     const root = ReactDOM.createRoot(mountPoint);
+
+    //     root.render(
+    //         <>
+    //             <p className='px-4 paragraph'>This is a web component</p>
+    //             <HelloWorld />
+    //             <ButtonComponent />
+    //         </>
+    //     );
+    // }
 }
 
-customElements.define('hello-world-web-component', WebComponent);
+window.customElements.define('hello-world-web-component', WebComponent);
